@@ -10,4 +10,7 @@ data  = pd.read_csv('wine.csv')
 # print(data.info())
 # print(data.describe())
 
-print(data.isna().sum())
+# # print(data.isna().sum())
+# print(data.loc[10:15, ['country', 'price']])
+
+print(data[(data.price > 300) & (data.country == 'US')][('country', 'price')])
