@@ -1,1 +1,0 @@
-age_by_survival
