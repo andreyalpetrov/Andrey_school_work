@@ -7,6 +7,7 @@ $(document).ready(function(){
         }else{
             err = 0;
         }
+    })
         if (err == 0){
             $.ajax({
                 url: '/user_register',
@@ -18,6 +19,40 @@ $(document).ready(function(){
                     email: $('#email').val()
                 })
             })
+        
+
+            .done(function(data){
+                if(data.result){
+                    window.location.href('/login')
+                }else{
+                    alert('Smth went wrong')
+                }
+                        
+            })
         }
     })
-})
+
+
+    $('#76').on('submit',function(e){
+        e.preventDefault();
+        
+        $.ajax({
+            url: '/user_register',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                name: $('#fullname').val(),
+                password: $('#password').val(),
+                email: $('#email').val()
+            })
+        })
+    })
+
+        .done(function(data){
+            if(data.result){
+                window.location.href('/login')
+            }else{
+                alert('Smth went wrong')
+            }
+                        
+        })
