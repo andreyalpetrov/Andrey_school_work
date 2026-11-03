@@ -1,6 +1,5 @@
-def f(x, y):
-    return (3*y + 2*x < a) or (x > 8) or (y > 12)
-
-for a in range(1, 1000):
-    if all(f(x,y) == 1 for x in range(1, 1000) for y in range(1, 1000)):
-        print(a)
+for a1 in '0123456789':
+    for a2 in '0123456789':
+        x = int(f'1{a1}34567{a2}9')
+        if x % 17 == 0:
+            print(x, x //17)
