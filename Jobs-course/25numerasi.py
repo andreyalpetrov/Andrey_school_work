@@ -22,6 +22,19 @@ ans.reverse()
 for a, b in ans:
     print(a, b)
 
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# Хитрая задача, буквы
+
+import fnmatch
+
+odd = '13579'
+even = '02468'
+
+for x in range(7777, 10**9, 7777):
+    if fnmatch.fnmatch(str(x), f'[{even}][{odd}][{even}][{even}][{odd}][{even}][{odd}]77'):
+        print(x, x // 7777)
+
+
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -52,3 +65,5 @@ for a1 in '0123456789':
         x = int(f'1{a1}34567{a2}9')
         if x % 17 == 0:
             print(x, x //17)
+
+

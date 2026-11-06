@@ -1,5 +1,7 @@
-for a1 in '0123456789':
-    for a2 in '0123456789':
-        x = int(f'1{a1}34567{a2}9')
-        if x % 17 == 0:
-            print(x, x //17)
+def f(c,e):
+    if c>e: return 0
+    if c == e: return 1
+    if c % 2 == 0: return f(c + 1, e) + f(c * 1.5, e)
+    return f(c + 1, e)
+
+print(f(2, 22))
