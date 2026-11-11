@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Чат · {{ model }}{% endblock %}
+{% block body_class %}chat{% endblock %}
+
+{% block body %}
+<header class="topbar">
+    <p class="mark">{{ model }}</p>
+    <div class="topbar-right">
+        <button type="button" class="link-button" id="new-chat">Новый диалог</button>
+        <span class="user-name" title="{{ username }}">{{ username }}</span>
+        <form action="{{ url_for('logout') }}" method="post">
+            <button type="submit" class="link-button">Выйти</button>
+        </form>
+    </div>
+</header>
+
+<main class="messages" id="messages">
+    <div class="thread" id="thread">
+        <div class="empty" id="empty">
+            <h1>О чём поговорим?</h1>
+            <p>Модель небольшая и работает в один поток, поэтому отвечает не мгновенно. Сначала она рассуждает, потом пишет ответ.</p>
+        </div>
+    </div>
+</main>
+
+<footer class="composer">
+    <form id="chat-form">
+        <textarea id="prompt" rows="1" placeholder="Напишите сообщение…" maxlength="8000" autofocus></textarea>
+        <button type="submit" id="send">Отправить</button>
+    </form>
+    <p class="composer-hint">Enter — отправить, Shift + Enter — новая строка</p>
+</footer>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='chat.js') }}"></script>
+{% endblock %}

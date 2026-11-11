@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Регистрация{% endblock %}
+{% block body_class %}auth{% endblock %}
+
+{% block body %}
+<main class="auth-layout">
+    <section class="auth-intro">
+        <p class="mark">{{ model }}</p>
+        <h1>Один аккаунт — <br>и можно <br>задавать вопросы.</h1>
+        <p class="auth-note">Подтверждать почту не нужно. Пароль хранится в базе только в виде хеша.</p>
+    </section>
+
+    <section class="auth-form">
+        <h2>Регистрация</h2>
+        <form id="register-form" novalidate>
+            <label for="fullname">Имя</label>
+            <input type="text" id="fullname" name="fullname" autocomplete="username" maxlength="50" autofocus required>
+
+            <label for="email">Почта</label>
+            <input type="email" id="email" name="email" autocomplete="email" maxlength="100" required>
+
+            <label for="password">Пароль <span class="hint">не короче 8 символов</span></label>
+            <input type="password" id="password" name="password" autocomplete="new-password" required>
+
+            <label for="confirm_password">Пароль ещё раз</label>
+            <input type="password" id="confirm_password" name="confirm_password" autocomplete="new-password" required>
+
+            <p class="form-error" id="form-error" role="alert" hidden></p>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+        <p class="switch-link">Уже есть аккаунт? <a href="{{ url_for('login_page') }}">Войти</a></p>
+    </section>
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='auth.js') }}"></script>
+{% endblock %}

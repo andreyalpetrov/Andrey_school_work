@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Вход{% endblock %}
+{% block body_class %}auth{% endblock %}
+
+{% block body %}
+<main class="auth-layout">
+    <section class="auth-intro">
+        <p class="mark">{{ model }}</p>
+        <h1>Нейросеть, <br>которая работает <br>на нашем сервере.</h1>
+        <p class="auth-note">Переписка не уходит в сторонние сервисы и не сохраняется: после обновления страницы диалог начинается заново.</p>
+    </section>
+
+    <section class="auth-form">
+        <h2>Вход</h2>
+        <form id="login-form" novalidate>
+            <label for="login">Имя или почта</label>
+            <input type="text" id="login" name="login" autocomplete="username" autofocus required>
+
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="password" autocomplete="current-password" required>
+
+            <p class="form-error" id="form-error" role="alert" hidden></p>
+            <button type="submit">Войти</button>
+        </form>
+        <p class="switch-link">Нет аккаунта? <a href="{{ url_for('register_page') }}">Зарегистрироваться</a></p>
+    </section>
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='auth.js') }}"></script>
+{% endblock %}
